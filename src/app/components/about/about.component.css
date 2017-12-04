@@ -1,0 +1,9 @@
+#page-header{
+    height:200px;
+    background:url('../../../assets/img/scene-8.jpg');
+    background-position:0 -360px;
+    background-attachment:fixed;
+    color:#fff;
+    border-bottom:1px #eee solid;
+    padding-top:50px;
+  }

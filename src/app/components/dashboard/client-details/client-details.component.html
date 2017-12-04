@@ -1,0 +1,163 @@
+<div class="row py-5">
+  <div class="col-md-6 mx-auto">
+    <a routerLink= "/dashboard" href="#" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to Dashboard
+    </a>    
+    <div class="btn-group pull-right">
+        <!-- [routerLink]="['/edit-client/'+id]" 
+          data-toggle="modal" 
+          data-target="#addPostModal"-->
+        <a  [routerLink]="['/edit-client/'+id]" class="btn btn-dark" > Edit </a>
+        <button class="btn btn-danger" (click) = onDeleteClick()>Delete</button>
+    </div>
+    <hr>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div *ngIf="client" class="card">
+      <h4 class="card-header">{{client.firstName}} {{client.lastName}}</h4>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+              <h4>Clienr ID : {{id}}</h4>
+          </div>
+          <!-- <div class="col-md-4"> -->
+            <!-- <h3 class="pull-right">
+              Balance: 
+              <span 
+              [class.text-danger]="hasBalance"
+              [class.text-success]="!hasBalance"
+              >
+              {{client.balance | currency:"USD":true}}
+            </span>
+            <small>
+              <a (click)="showBalanceUpdateInput = !showBalanceUpdateInput">
+                <i class="fa fa-pencil"></i>
+              </a>
+            </small>
+            </h3> -->
+
+            <!-- <div class="clearfix">
+              <form *ngIf="showBalanceUpdateInput" (submit)="updateBalance(id)">
+                <div class="input-group">
+                  <input type="text" name= "balance" class="form-control" [(ngModel)]="client.balance">
+                  <span class="input-group-button">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div> -->
+        </div>
+        <hr>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-sm-4">A.K.A</div> 
+              <div class="col-sm-8"> {{client.aka}}  </div>
+            </div> 
+          </li>
+          
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-4">Age</div> 
+              <div class="col-md-8">{{client.age}} </div>
+            </div> 
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-4">Date of Birth</div> 
+              <div class="col-md-8"> {{client.dateOfBirth}}  </div>
+            </div> 
+          </li>
+    
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-4">Adhar Card</div> 
+              <div class="col-md-8"> {{client.adharCard}}  </div>
+            </div> 
+          </li>
+    
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-4">Gender</div> 
+              <div class="col-md-8"> {{client.gender}}  </div>
+            </div> 
+          </li>
+    
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-4">Marital Status</div> 
+              <div class="col-md-8"> {{client.maritalStatus}}  </div>
+            </div> 
+          </li>
+    
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-4">Designation</div> 
+              <div class="col-md-8"> {{client.designation}}  </div>
+            </div> 
+          </li>
+
+          <li class="list-group-item">
+            <div class="row">
+              <div class="col-md-4">Contact Phone</div> 
+              <div class="col-md-8">{{client.phone}} </div>
+            </div> 
+          </li>
+
+          <li class="list-group-item"> 
+            <div class="row">
+                <div class="col-md-4">Contact Email</div> 
+                <div class="col-md-8">{{client.email}} </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addPostModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">Update the details</h5>
+          <button class="close" data-dismiss="modal"><span>&times;</span></button>
+        </div>
+        <div class="modal-body">
+            <!-- <form novalidate #f="ngForm" (ngSubmit)="onSubmit(f)">
+              <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text"
+                  class="form-control"
+                  [ngClass]="{'is-invalid':clientFirstName.errors?.required && clientFirstName.touched || clientFirstName.errors?.minlength}"
+                  [(ngModel)]="client.firstName"
+                  name="firstName"
+                  #clientFirstName = "ngModel"
+                  minlength="2"
+                  required
+                >
+                <div *ngIf="clientFirstName.errors?.required && clientFirstName.touched" class="invalid-feedback">
+                  First name is required
+                </div>
+                <div *ngIf="clientFirstName.errors?.minlength && clientFirstName.touched" class="invalid-feedback">
+                  Must be at least 2 characters
+                </div>
+              </div>
+            </form> -->
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button class="btn btn-primary" data-dismiss="modal">Save Changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
